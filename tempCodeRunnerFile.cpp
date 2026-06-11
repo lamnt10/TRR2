@@ -14,7 +14,6 @@ void bfs(int x){
         for(int i=1;i<=n;i++){
             if(!vs[i] && a[tmp][i]==1){
                 vs[i]=1;
-                q.push(i);
                 parent[i]=tmp;
                 if(i==v) return;
             }
@@ -22,8 +21,6 @@ void bfs(int x){
     }
 }
 int main() {
-    freopen("TK.INP","r", stdin);
-    freopen("TK.OUT","w",stdout);
     int t;cin >> t;
     cin >> n >> u >> v;
     for(int i=1;i<=n;i++){
