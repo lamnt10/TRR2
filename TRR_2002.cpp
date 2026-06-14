@@ -14,13 +14,16 @@ void bfs(int x){
         for(int i=1;i<=n;i++){
             if(!vs[i] && a[tmp][i]==1){
                 vs[i]=1;
+                q.push(i);
                 parent[i]=tmp;
-                if(i==v)
+                if(i==v) return;
             }
         }
     }
 }
 int main() {
+    freopen("TK.INP","r", stdin);
+    freopen("TK.OUT","w",stdout);
     int t;cin >> t;
     cin >> n >> u >> v;
     for(int i=1;i<=n;i++){
@@ -36,7 +39,17 @@ int main() {
         cout << cnt << endl;
     }
     else{
-
+        bfs(u);
+        vector<int> ve;
+        int curr = v; 
+        ve.push_back(curr);
+        while (curr != u){
+            curr = parent[curr];
+            ve.push_back(curr);
+        }
+        for(int i=ve.size()-1;i>=0;i--){
+            cout << ve[i] << " " ;
+        }
     }
     return 0;
 }
